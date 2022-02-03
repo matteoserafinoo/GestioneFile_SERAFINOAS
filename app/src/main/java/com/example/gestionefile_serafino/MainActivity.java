@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         btnlettura = (Button) findViewById(R.id.btnlettura);
         editText = findViewById(R.id.editText);
 
-        Ges = new Gestore();
+      //  Ges = new Gestore();
 
         //listeners
         btnscrittura.setOnClickListener(new View.OnClickListener() {
@@ -33,12 +33,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnlettura.setOnClickListener(new View.OnClickListener() {
+        /*btnlettura.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String risultato = //contesto e nome file
             }
-        });
+        });*/
     }
 
 }
