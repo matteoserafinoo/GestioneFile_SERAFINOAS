@@ -27,9 +27,14 @@ public class Gestore {
         } catch (IOException e) {
             Log.e("Errore",e.toString());
         }
+      String inputString;
 
+        /*while ((inputString=inputReader.readline()) != null)
+        {
+            s.append(inputString +"\n");
+        }*/
+        return s.toString();
 
-        return s;
     }
 
     public void ScriviFile(String nomefile, String testo)
