@@ -14,9 +14,16 @@ import java.nio.charset.StandardCharsets;
 public class Gestore {
     String nomefile;
     Context c;
+    StringBuilder sb;
+
 
     public Gestore(String nomefile) {
         this.nomefile = nomefile;
+
+    }
+
+    public Gestore() {
+
     }
 
     public String LeggiFile(String nomefile, Context c)
@@ -31,12 +38,18 @@ public class Gestore {
             Log.e("Errore",e.toString());
         }
       String inputString;
+        try {
+            BufferedReader filedaleggere = new BufferedReader(new InputStreamReader(c.openFileInput(nomefile)));
+        while ((inputString = filedaleggere.readLine()) != null) {
+            sb.append(inputString +"\n");
+        }
 
-        /*while ((inputString=inputReader.readline()) != null)
-        {
-            s.append(inputString +"\n");
-        }*/
-        return s.toString();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return sb.toString();
 
     }
 

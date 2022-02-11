@@ -1,16 +1,19 @@
-package com.example.gestionefile_serafino;
+    package com.example.gestionefile_serafino;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+    public class MainActivity extends AppCompatActivity {
     Button btnscrittura;
     Button btnlettura;
     EditText editText;
+    Gestore gest;
 
 
     @Override
@@ -23,22 +26,26 @@ public class MainActivity extends AppCompatActivity {
         btnlettura = (Button) findViewById(R.id.btnlettura);
         editText = findViewById(R.id.editText);
 
-      //  Ges = new Gestore();
+       gest = new Gestore();
 
         //listeners
         btnscrittura.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                 String ritorno = gest.ScriviFile("testo.txt", getApplicationContext());
 
+                Toast.makeText(getApplicationContext(),ritorno,Toast.LENGTH_LONG).show();
             }
         });
 
-        /*btnlettura.setOnClickListener(new View.OnClickListener() {
+        btnlettura.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String risultato = //contesto e nome file
+                Context c = getApplicationContext();
+                String righelette = gest.LeggiFile("prova.txt", getApplicationContext());
+                Toast.makeText(getApplicationContext(),righelette, Toast.LENGTH_LONG).show();
             }
-        });*/
+        });
     }
 
 }
